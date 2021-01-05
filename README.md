@@ -36,13 +36,19 @@ Use this scenarion if you will commit your changes. The `appsettings.Development
 ```JSON
 <None Include="appsettings.Development.json" CopyToOutputDirectory="Always" />
 ```
-
+### Linux
 ```console
 cd ./src
 make build
 ```
 
+### Windows
+Use Visual Studio / Visual Studio Code
+
 ## Run
+### Linux
 ```console
 make run
 ```
+### Windows
+Use Visual Studio / Visual Studio Code
