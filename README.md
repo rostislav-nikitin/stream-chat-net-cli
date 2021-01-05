@@ -6,7 +6,7 @@ The Stream Chat CLI implementation
 
 ## Clone
 ```console
-git clone 
+git clone https://github.com/rostislav-nikitin/stream-chat-net-cli.git
 ```
 
 ## Build
