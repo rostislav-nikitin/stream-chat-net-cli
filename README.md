@@ -43,7 +43,7 @@ make build
 ```
 
 ### Windows
-Use Visual Studio / Visual Studio Code
+Use a Visual Studio / Visual Studio Code
 
 ## Run
 ### Linux
@@ -51,4 +51,4 @@ Use Visual Studio / Visual Studio Code
 make run
 ```
 ### Windows
-Use Visual Studio / Visual Studio Code
+Use a Visual Studio / Visual Studio Code
