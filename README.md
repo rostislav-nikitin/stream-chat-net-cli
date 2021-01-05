@@ -12,7 +12,7 @@ git clone https://github.com/rostislav-nikitin/stream-chat-net-cli.git
 ## Build
 ### Set app settings with your custom API_KEY / API_SECRET
 #### Scenario 1. Replace API_KEY / API_SECRET in appsettings.json
-Use this scenario if you will not commit your changes, otherwise appsettings.json width you sensitive data will be commited into the repo.
+Use this scenario if you will *NOT* commit your changes. Otherwise appsettings.json width you sensitive data will be commited into the repo.
 ```JSON
 {
 	"ConnectionStrings":
