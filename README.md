@@ -1,5 +1,5 @@
 # stream-chat-net-cli
-The Stream Chat CLI implementation
+The Stream Chat CLI (Command Line Interface)
 
 ## Requirements
 .NET Core 3.1
