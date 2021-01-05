@@ -10,8 +10,9 @@ git clone https://github.com/rostislav-nikitin/stream-chat-net-cli.git
 ```
 
 ## Build
-### Update app settings with API_KEY / API_SECRET
-#### Replace API_KEY / API_SECRET in appsettings.json
+### Set app settings with your custom API_KEY / API_SECRET
+#### Scenario 1. Replace API_KEY / API_SECRET in appsettings.json
+Use this scenario if you will not commit your changes, otherwise appsettings.json widh you sensitive data will be commited into the repo.
 ```JSON
 {
 	"ConnectionStrings":
@@ -20,7 +21,8 @@ git clone https://github.com/rostislav-nikitin/stream-chat-net-cli.git
 	}
 }
 ```
-#### Add appsettings.Development.json
+#### Scenario 2. Add appsettings.Development.json
+Use this scenarion if you will commit your changes. The `appsettings.Development.json` inside a .gitignore and will be not commited into the repo.
 * Add appsettings.Development.json as below with your API_KEY / API_SECRET
 ```JSON
 {
@@ -30,7 +32,7 @@ git clone https://github.com/rostislav-nikitin/stream-chat-net-cli.git
 	}
 }
 ```
-* Uncomment line below inside a StreamChat.Cli.cspoj. The `appsettings.Development.json` inside a .gitignore and will not commited to the repo.
+* Uncomment line below inside a StreamChat.Cli.cspoj.
 ```JSON
 <None Include="appsettings.Development.json" CopyToOutputDirectory="Always" />
 ```
