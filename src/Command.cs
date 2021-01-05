@@ -58,6 +58,7 @@ namespace StreamChat.Cli
 				return "Invalid command. Command is not specified";
 
 			string result;
+
 			if(_chatClientActions.TryGetValue(_command, out Func<Task<string>> func))
 			{
 				result = await func();
@@ -66,6 +67,7 @@ namespace StreamChat.Cli
 			{
 				result = "Invalid command. Specified command not found";
 			}
+
 			_logger.LogInformation("Execution finished");
 
 			return result;
@@ -104,6 +106,7 @@ namespace StreamChat.Cli
 		private string CreateChannelTypeInfo(ChannelTypeInfo channelTypeInfo)
 		{
 			const int StringBuilderSizeDefault = 1024;
+
 			StringBuilder result = new StringBuilder(StringBuilderSizeDefault);
 
 			result.AppendLine($"Channel type: {_name}");
