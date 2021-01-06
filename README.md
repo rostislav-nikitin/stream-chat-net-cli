@@ -43,7 +43,7 @@ cd ./src
 #build
 make build
 
-# run some test command
+#run some test command
 make test
 ```
 
