@@ -34,7 +34,6 @@ namespace StreamChat.Cli
 				throw new ArgumentException("Invalid arguments\nUse:\n\tschatcli {entity} {action} [parameter 1 ... parameter n]");
 
 			string cmd = $"{args[0]}{args[1]}";
-			Console.WriteLine(cmd);
 
 			var serviceCollection = new ServiceCollection();
 			Configure(serviceCollection);
@@ -74,9 +73,16 @@ namespace StreamChat.Cli
 
 		private static void ConfigureServices(IServiceCollection services)
 		{
-			services.AddLogging(builder =>
-				builder.AddConsole()
-			);
+			if(Array.IndexOf(_args, "--debug") > -1)
+			{
+				services.AddLogging(builder =>
+					builder.AddConsole()
+				);
+			}
+			else
+			{
+				services.AddLogging();
+			}
 
 			services.AddTransient<ICommand, UserTokenCreate>();
 			services.AddTransient<ICommand, ChannelTypeList>();

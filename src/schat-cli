@@ -1,0 +1,3 @@
+#!/bin/sh
+export ASPNETCORE_ENVIRONMENT=Development
+dotnet ./bin/Debug/netcoreapp3.1/StreamChat.Cli.dll "$@"
