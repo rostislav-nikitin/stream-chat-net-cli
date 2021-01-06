@@ -55,11 +55,38 @@ Use a Visual Studio / Visual Studio Code
 ```console 
 ./schat-cli userToken create --username={UserName}
 ```
+Result:
+```console
+eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAtmimuDRQ14tq6iH5cYYm3F7K1sZS4P3w
+```
 - List channel types
 ```console 
 ./schat-cli channelType list
 ```
+Result:
+```console
+somestream
+messaging
+```
+
 - Get channel type
 ```console
 ./schat-cli channelType get --name={ChannelTypeName}
+```
+Result:
+```console
+Channel type: somestream
+	Created at: 1/4/2021 1:18:33 PM
+	Udpated at: 1/4/2021 1:18:33 PM
+	Name: somestream
+	Typing events: True
+	Read events: True
+	Connect events: True
+	Search: 1/4/2021 1:18:33 PM
+	Reactions: True
+	Replies: True
+	Mutes: True
+	Message retention: infinite
+	Max message length: 5000
+	Automod: disabled
 ```
