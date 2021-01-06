@@ -51,11 +51,12 @@ make test
 Use a Visual Studio / Visual Studio Code
 
 ## Currently supported commands
+### Token
 - Create user token
 ```console 
 ./schat-cli userToken create --username={UserName}
 ```
-Result:
+Typical result:
 ```console
 eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAtmimuDRQ14tq6iH5cYYm3F7K1sZS4P3w
 ```
@@ -63,17 +64,17 @@ eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAt
 ```console 
 ./schat-cli channelType list
 ```
-Result:
+Typical result:
 ```console
 somestream
 messaging
 ```
-
+### Channel type
 - Get channel type
 ```console
 ./schat-cli channelType get --name={ChannelTypeName}
 ```
-Result:
+Typical result:
 ```console
 Channel type: somestream
 	Created at: 1/4/2021 1:18:33 PM
