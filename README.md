@@ -39,16 +39,17 @@ Use this scenarion if you will commit your changes. The `appsettings.Development
 ### Linux
 ```console
 cd ./src
+
+#build
 make build
+
+# run some test command
+make test
 ```
 
 ### Windows
 Use a Visual Studio / Visual Studio Code
 
-## Run
-### Linux
-```console
-make run
-```
-### Windows
-Use a Visual Studio / Visual Studio Code
+## Currently supported commands
+- Create user token
+`console schat-cli userToken create --username={UserName}`
