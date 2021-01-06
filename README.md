@@ -60,6 +60,8 @@ Typical result:
 ```console
 eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAtmimuDRQ14tq6iH5cYYm3F7K1sZS4P3w
 ```
+
+### Channel type
 - List channel types
 ```console 
 ./schat-cli channelType list
@@ -69,7 +71,6 @@ Typical result:
 somestream
 messaging
 ```
-### Channel type
 - Get channel type
 ```console
 ./schat-cli channelType get --name={ChannelTypeName}
