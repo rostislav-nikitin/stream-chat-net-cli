@@ -52,4 +52,14 @@ Use a Visual Studio / Visual Studio Code
 
 ## Currently supported commands
 - Create user token
-```console schat-cli userToken create --username={UserName}```
+```console 
+./schat-cli userToken create --username={UserName}
+```
+- List channel types
+```console 
+./schat-cli channelType list
+```
+- Get channel type
+```console
+./schat-cli channelType get --name={ChannelTypeName}
+```
