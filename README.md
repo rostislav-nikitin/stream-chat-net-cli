@@ -39,16 +39,27 @@ Use this scenarion if you will commit your changes. The `appsettings.Development
 ### Linux
 ```console
 cd ./src
+
+#build
 make build
+
+# run some test command
+make test
 ```
 
 ### Windows
 Use a Visual Studio / Visual Studio Code
 
-## Run
-### Linux
+## Currently supported commands
+- Create user token
+```console 
+./schat-cli userToken create --username={UserName}
+```
+- List channel types
+```console 
+./schat-cli channelType list
+```
+- Get channel type
 ```console
-make run
+./schat-cli channelType get --name={ChannelTypeName}
 ```
-### Windows
-Use a Visual Studio / Visual Studio Code
