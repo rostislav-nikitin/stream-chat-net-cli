@@ -1,7 +1,7 @@
 # stream-chat-net-cli
 The Stream Chat CLI (Command Line Interface)
 
-![Mindmap](https://github.com/rostislav-nikitin/stream-chat-net-cli/blob/master/mind_map.png?raw=true)
+![Mindmap](https://github.com/rostislav-nikitin/stream-chat-net-cli/blob/main/mind_map.png)
 
 ## Requirements
 .NET Core 3.1
