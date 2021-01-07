@@ -16,7 +16,7 @@
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
     <PackageReference Include="stream-chat-net" Version="0.6.1" />
     <None Include="appsettings.json" CopyToOutputDirectory="Always" />
-	<None Include="appsettings.Development.json" CopyToOutputDirectory="Always" />
+	  <!-- None Include="appsettings.Development.json" CopyToOutputDirectory="Always" /-->
   </ItemGroup>
 
 </Project>

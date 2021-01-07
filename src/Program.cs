@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Configuration;
@@ -20,6 +22,11 @@ namespace StreamChat.Cli
 
 		private static string[] _args;
 
+		private static readonly IDictionary<string, string> _mappings = new Dictionary<string, string>()
+		{
+			{"usercreate", "userupdate"}
+		};
+
 		private static IConfiguration _configuration;
 		private static ILogger<Program> _logger;
 
@@ -30,10 +37,13 @@ namespace StreamChat.Cli
         static async Task Main(string[] args)
         {
 			_args = args;
-			if(_args.Length < 2)
-				throw new ArgumentException("Invalid arguments\nUse:\n\tschatcli {entity} {action} [parameter 1 ... parameter n]");
 
-			string cmd = $"{args[0]}{args[1]}";
+			if(Array.IndexOf(_args, "--help") > -1
+				|| _args.Length < 2)
+			{
+				Console.WriteLine(GetHelp());
+				return;
+			}
 
 			var serviceCollection = new ServiceCollection();
 			Configure(serviceCollection);
@@ -44,16 +54,48 @@ namespace StreamChat.Cli
 			_logger = serviceProvider.GetService<ILogger<Program>>();
 			_logger.LogInformation($"API key: {_apiKey}, API secret: {_apiSecret}");
 
+			string cmd = CreateCommand(args[0], args[1]);
 			var command = serviceProvider
 					.GetServices<ICommand>()
-					.First(s => s.GetType().Name.Equals(cmd, StringComparison.InvariantCultureIgnoreCase));
+					.FirstOrDefault(s => s.GetType().Name.Equals(cmd, StringComparison.InvariantCultureIgnoreCase));
 
-			var result = await command.Execute();
-
-			Console.WriteLine(result);
+			if(command != null)
+			{
+				 Console.WriteLine(await command.Execute());
+			}
+			else
+			{
+				Console.WriteLine(GetHelp());
+			}
         }
 
-		private static void Configure(IServiceCollection services)
+        private static string CreateCommand(string command, string action)
+        {
+             string result = $"{command}{action}";
+			 
+			 if(_mappings.ContainsKey(result))
+			 	result = _mappings[result];
+
+			return result;
+        }
+
+		private static string GetHelp()
+        {
+            StringBuilder result = new StringBuilder();
+
+			result.AppendLine("Usage:");
+			result.AppendLine("\tschat-cli --help");
+			result.AppendLine("\tschat-cli {entity} {action} [--parameter1=value...--parameterN=value] [--debug]\n");
+			result.AppendLine("{entity} {action} [--parameter1=value...--parameterN=value]");
+			result.AppendLine("\tuserToken create\n\t\t --username={username}");
+			result.AppendLine("\tuser {create|update}\n\t\t--username={username}\n\t\t--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User}\n\t\t--name={FullName}");
+			result.AppendLine("\tchannelType list");
+			result.AppendLine("\tchannelType get\n\t\t --name={ChannelTypeName}");
+
+			return result.ToString();
+        }
+
+        private static void Configure(IServiceCollection services)
 		{
 			var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 			
@@ -85,8 +127,10 @@ namespace StreamChat.Cli
 			}
 
 			services.AddTransient<ICommand, UserTokenCreate>();
+			services.AddTransient<ICommand, UserUpdate>();
 			services.AddTransient<ICommand, ChannelTypeList>();
 			services.AddTransient<ICommand, ChannelTypeGet>();
+
 			services.AddSingleton(CreateStreamChatClient(services));
 		}
 
@@ -108,3 +152,4 @@ namespace StreamChat.Cli
 		}
     }
 }
+
