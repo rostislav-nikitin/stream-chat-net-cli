@@ -53,20 +53,42 @@ make test
 Use a Visual Studio / Visual Studio Code
 
 ## Currently supported commands
+### Help
+./schat-cli --help
 ### Token
 - Create user token
 ```console 
-./schat-cli userToken create --username={UserName}
+./schat-cli userToken create --username={UserName} [--debug]
 ```
 Typical result:
 ```console
 eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAtmimuDRQ14tq6iH5cYYm3F7K1sZS4P3w
 ```
 
+- Create/Update user
+```console 
+./schat-cli user {create|update} \
+	--username={UserName} \
+	--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User} \
+	--name={Full_Name}
+	[--debug]
+```
+Typical result:
+```console
+ID:		 SomeId
+Role:		 user
+Online:		 False
+Last active:	 
+Deactivated at: 
+Deactivated at: 
+Created at:	 1/5/2021 2:32:47 PM
+Updated at:	 1/5/2021 2:32:47 PM
+```
+
 ### Channel type
 - List channel types
 ```console 
-./schat-cli channelType list
+./schat-cli channelType list [--debug]
 ```
 Typical result:
 ```console
@@ -75,7 +97,7 @@ messaging
 ```
 - Get channel type
 ```console
-./schat-cli channelType get --name={ChannelTypeName}
+./schat-cli channelType get --name={ChannelTypeName} [--debug]
 ```
 Typical result:
 ```console
