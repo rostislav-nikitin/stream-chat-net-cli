@@ -101,18 +101,17 @@ messaging
 ```
 Typical result:
 ```console
-Channel type: somestream
-	Created at: 1/4/2021 1:18:33 PM
-	Udpated at: 1/4/2021 1:18:33 PM
-	Name: somestream
-	Typing events: True
-	Read events: True
-	Connect events: True
-	Search: 1/4/2021 1:18:33 PM
-	Reactions: True
-	Replies: True
-	Mutes: True
-	Message retention: infinite
-	Max message length: 5000
-	Automod: disabled
+Created at:		 1/5/2021 1:18:33 PM
+Udpated at:		 1/5/2021 1:18:33 PM
+Name:			 messaging
+Typing events:		 True
+Read events:		 True
+Connect events:		 True
+Search:			 1/5/2021 1:18:33 PM
+Reactions:		 True
+Replies:		 True
+Mutes:			 True
+Message retention:	 infinite
+Max message length:	 5000
+Automod:		 disabled
 ```
