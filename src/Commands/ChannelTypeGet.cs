@@ -32,33 +32,32 @@ namespace StreamChat.Cli.Commands
 			_logger.LogInformation($"Name: {name}");
 
 			var channelTypes = await _client.ListChannelTypes();
-			var result = CreateChannelTypeInfo(name, channelTypes[name]);
+			var result = CreateChannelTypeInfo(channelTypes[name]);
 
 			_logger.LogInformation("Executed");
 
 			return result;
 		}
 
-		private string CreateChannelTypeInfo(string name, ChannelTypeInfo channelTypeInfo)
+		private string CreateChannelTypeInfo(ChannelTypeInfo channelTypeInfo)
 		{
 			const int StringBuilderSizeDefault = 1024;
 
 			StringBuilder result = new StringBuilder(StringBuilderSizeDefault);
 
-			result.AppendLine($"Channel type: {name}");
-			result.AppendLine($"\tCreated at: {channelTypeInfo.CreatedAt}");
-			result.AppendLine($"\tUdpated at: {channelTypeInfo.UpdatedAt}");
-			result.AppendLine($"\tName: {channelTypeInfo.Name}");
-			result.AppendLine($"\tTyping events: {channelTypeInfo.TypingEvents}");
-			result.AppendLine($"\tRead events: {channelTypeInfo.ReadEvents}");
-			result.AppendLine($"\tConnect events: {channelTypeInfo.ConnectEvents}");
-			result.AppendLine($"\tSearch: {channelTypeInfo.CreatedAt}");
-			result.AppendLine($"\tReactions: {channelTypeInfo.Reactions}");
-			result.AppendLine($"\tReplies: {channelTypeInfo.Replies}");
-			result.AppendLine($"\tMutes: {channelTypeInfo.Mutes}");
-			result.AppendLine($"\tMessage retention: {channelTypeInfo.MessageRetention}");
-			result.AppendLine($"\tMax message length: {channelTypeInfo.MaxMessageLength}");
-			result.AppendLine($"\tAutomod: {channelTypeInfo.Automod}");
+			result.AppendLine($"Created at:\t\t {channelTypeInfo.CreatedAt}");
+			result.AppendLine($"Udpated at:\t\t {channelTypeInfo.UpdatedAt}");
+			result.AppendLine($"Name:\t\t\t {channelTypeInfo.Name}");
+			result.AppendLine($"Typing events:\t\t {channelTypeInfo.TypingEvents}");
+			result.AppendLine($"Read events:\t\t {channelTypeInfo.ReadEvents}");
+			result.AppendLine($"Connect events:\t\t {channelTypeInfo.ConnectEvents}");
+			result.AppendLine($"Search:\t\t\t {channelTypeInfo.CreatedAt}");
+			result.AppendLine($"Reactions:\t\t {channelTypeInfo.Reactions}");
+			result.AppendLine($"Replies:\t\t {channelTypeInfo.Replies}");
+			result.AppendLine($"Mutes:\t\t\t {channelTypeInfo.Mutes}");
+			result.AppendLine($"Message retention:\t {channelTypeInfo.MessageRetention}");
+			result.AppendLine($"Max message length:\t {channelTypeInfo.MaxMessageLength}");
+			result.AppendLine($"Automod:\t\t {channelTypeInfo.Automod}");
 
 			return result.ToString();
 		}
