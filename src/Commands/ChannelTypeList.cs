@@ -1,10 +1,7 @@
 namespace StreamChat.Cli.Commands
 {
-	using System;
-	using System.Collections.Generic;
 	using System.Text;
 	using System.Threading.Tasks;
-	using Microsoft.Extensions.Configuration;
 	using Microsoft.Extensions.Logging;
 	using StreamChat;
 

@@ -1,12 +1,10 @@
 namespace StreamChat.Cli.Commands
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
 	using System.Threading.Tasks;
 	using Microsoft.Extensions.Configuration;
 	using Microsoft.Extensions.Logging;
-	using StreamChat;
+    using StreamChat.Cli.Commands.Extensions;
+    using StreamChat;
 
 	internal class ChannelTypeGet: ICommand
 	{
@@ -32,34 +30,13 @@ namespace StreamChat.Cli.Commands
 			_logger.LogInformation($"Name: {name}");
 
 			var channelTypes = await _client.ListChannelTypes();
-			var result = CreateChannelTypeInfo(channelTypes[name]);
+			var result = channelTypes[name]?.ToInfo();
 
 			_logger.LogInformation("Executed");
 
 			return result;
 		}
 
-		private string CreateChannelTypeInfo(ChannelTypeInfo channelTypeInfo)
-		{
-			const int StringBuilderSizeDefault = 1024;
-
-			StringBuilder result = new StringBuilder(StringBuilderSizeDefault);
-
-			result.AppendLine($"Created at:\t\t {channelTypeInfo.CreatedAt}");
-			result.AppendLine($"Udpated at:\t\t {channelTypeInfo.UpdatedAt}");
-			result.AppendLine($"Name:\t\t\t {channelTypeInfo.Name}");
-			result.AppendLine($"Typing events:\t\t {channelTypeInfo.TypingEvents}");
-			result.AppendLine($"Read events:\t\t {channelTypeInfo.ReadEvents}");
-			result.AppendLine($"Connect events:\t\t {channelTypeInfo.ConnectEvents}");
-			result.AppendLine($"Search:\t\t\t {channelTypeInfo.CreatedAt}");
-			result.AppendLine($"Reactions:\t\t {channelTypeInfo.Reactions}");
-			result.AppendLine($"Replies:\t\t {channelTypeInfo.Replies}");
-			result.AppendLine($"Mutes:\t\t\t {channelTypeInfo.Mutes}");
-			result.AppendLine($"Message retention:\t {channelTypeInfo.MessageRetention}");
-			result.AppendLine($"Max message length:\t {channelTypeInfo.MaxMessageLength}");
-			result.AppendLine($"Automod:\t\t {channelTypeInfo.Automod}");
-
-			return result.ToString();
-		}
+		
 	}
 }

@@ -1,14 +1,13 @@
 namespace StreamChat.Cli.Commands
 {
 	using System;
-	using System.Collections.Generic;
-	using System.Text;
 	using System.Threading.Tasks;
 	using Microsoft.Extensions.Configuration;
 	using Microsoft.Extensions.Logging;
-	using StreamChat;
+    using StreamChat;
+    using StreamChat.Cli.Commands.Extensions;
 
-	internal class UserUpdate : ICommand
+    internal class UserUpdate : ICommand
 	{
 		private readonly Client _client;
 		private readonly IConfiguration _configuration;
@@ -53,26 +52,10 @@ namespace StreamChat.Cli.Commands
 
 			User userFromDB = await _client.Users.Update(user);
 			
-			var result = UserGet(userFromDB);
-
 			_logger.LogInformation("Executed");
 
-			return result;
+			return userFromDB?.ToInfo();
 		}
-		private string UserGet(User user)
-		{
-			StringBuilder result = new StringBuilder();
-
-			result.AppendLine($"ID:\t\t {user.ID}");
-			result.AppendLine($"Role:\t\t {user.Role}");
-			result.AppendLine($"Online:\t\t {user.Online}");
-			result.AppendLine($"Last active:\t {user.LastActive}");
-			result.AppendLine($"Deactivated at: {user.DeactivatedAt}");
-			result.AppendLine($"Deactivated at: {user.DeletedAt}");
-			result.AppendLine($"Created at:\t {user.CreatedAt}");
-			result.AppendLine($"Updated at:\t {user.UpdatedAt}");
-
-			return result.ToString();
-		}
+		
 	}
 }
