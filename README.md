@@ -147,7 +147,7 @@ messaging
 ```
 - Get channel type
 ```console
-./schat-cli channelType get [--name={ChannelTypeName}] [--debug]
+./schat-cli channelType get --name={ChannelTypeName} [--debug]
 ```
 Example:
 ```console
