@@ -88,7 +88,7 @@ Updated at:	 1/5/2021 2:32:47 PM
 ### Channel type
 - Create channel type
 ```console
-./schat-cli channelType create --name="TestChannel" --automod=ai --mutes=True --typingEvents=True
+./schat-cli channelType create --name="TestChannel" --automod=ai --mutes=True --typingEvents=True [--debug]
 ```
 Typical result:
 ```console
