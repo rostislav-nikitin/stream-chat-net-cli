@@ -60,7 +60,11 @@ Use a Visual Studio / Visual Studio Code
 ```console 
 ./schat-cli userToken create --username={UserName} [--debug]
 ```
-Typical result:
+Example:
+```console
+./schat-cli userToken create --username=TestUser
+```
+Result:
 ```console
 eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAtmimuDRQ14tq6iH5cYYm3F7K1sZS4P3w
 ```
@@ -68,12 +72,16 @@ eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAt
 - Create/Update user
 ```console 
 ./schat-cli user {create|update} \
-	--username={UserName} \
-	--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User} \
-	--name={Full_Name}
+	[--username={UserName}] \
+	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
+	[--name="{Full_Name}"]
 	[--debug]
 ```
-Typical result:
+Example:
+```console
+./schat-cli user create username=TestUser role=User --name="Test User"
+``` 
+Result:
 ```console
 ID:		 SomeId
 Role:		 user
@@ -88,9 +96,26 @@ Updated at:	 1/5/2021 2:32:47 PM
 ### Channel type
 - Create channel type
 ```console
-./schat-cli channelType create --name="TestChannel" --automod=ai --mutes=True --typingEvents=True [--debug]
+./schat-cli channelType create \
+	 [--name={ChannelTypeName}] \
+	 [--automod={AI|Disabled(default)|Simple}] \
+	 [--mutes={True|False}] \
+	 [--connectEvents={True|False}] \
+	 [--maxMessageLength={MaxMessageLength}] \
+	 [--messageRetention={MessageRetention}] \
+	 [--reactions={True|False}] \
+	 [--readEvents={True|False}] \
+	 [--replies={True|False}] \
+	 [--search={True|False}] \
+	 [--typingEvents={True|False}] \
+	 [--commands="{Command1 Command2 ... CommandN}"] \
+	 [--debug]
 ```
-Typical result:
+Example:
+```console
+./schat-cli channelType create --name="TestChannel" --automod=ai --mutes=True --typingEvents=True
+```
+Result:
 ```console
 Created at:		 1/5/2021 1:18:33 PM
 Udpated at:		 1/5/2021 1:18:33 PM
@@ -110,16 +135,24 @@ Automod:		 disabled
 ```console 
 ./schat-cli channelType list [--debug]
 ```
-Typical result:
+Example:
+```console
+./schat-cli channelType list
+```
+Result:
 ```console
 somestream
 messaging
 ```
 - Get channel type
 ```console
-./schat-cli channelType get --name={ChannelTypeName} [--debug]
+./schat-cli channelType get [--name={ChannelTypeName}] [--debug]
 ```
-Typical result:
+Example:
+```console
+./schat-cli channelType get --name=messaging
+```
+Result:
 ```console
 Created at:		 1/5/2021 1:18:33 PM
 Udpated at:		 1/5/2021 1:18:33 PM
