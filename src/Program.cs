@@ -82,8 +82,8 @@ namespace StreamChat.Cli
 			result.AppendLine("\tschat-cli {entity} {action} [--parameter1=value...--parameterN=value] [--debug]\n");
 			result.AppendLine("{entity} {action} [--parameter1=value...--parameterN=value]");
 			result.AppendLine("\tuserToken create\n\t\t --username={username}");
-			result.AppendLine("\tuser {create|update}\n\t\t--username={username}\n\t\t--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User}\n\t\t--name={FullName}");
-			result.AppendLine("\tchannelType create\n\t\t --name={ChannelTypeName}\n\t\t --automod={AI|Disabled(default)|Simple}\n\t\t --mutes={True|False}\n\t\t --connectEvents={True|False}\n\t\t --maxMessageLength={MaxMessageLength}\n\t\t --messageRetention={MessageRetention}\n\t\t --reactions={True|False}\n\t\t --readEvents={True|False}\n\t\t --replies={True|False}\n\t\t --search={True|False}\n\t\t --typingEvents={True|False}\n\t\t --commands=\"{Command1 Command2 ... CommandN}\"");
+			result.AppendLine("\tuser {create|update}\n\t\t[--username={username}]\n\t\t[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}]\n\t\t[--name={FullName}]");
+			result.AppendLine("\tchannelType create\n\t\t[--name={ChannelTypeName}]\n\t\t[--automod={AI|Disabled(default)|Simple}]\n\t\t[--mutes={True|False}]\n\t\t[--connectEvents={True|False}]\n\t\t[--maxMessageLength={MaxMessageLength}]\n\t\t[--messageRetention={MessageRetention}]\n\t\t[--reactions={True|False}]\n\t\t[--readEvents={True|False}]\n\t\t[--replies={True|False}]\n\t\t[--search={True|False}]\n\t\t[--typingEvents={True|False}]\n\t\t[--commands=\"{Command1 Command2 ... CommandN}\"]");
 			result.AppendLine("\tchannelType list");
 			result.AppendLine("\tchannelType get\n\t\t --name={ChannelTypeName}");
 
