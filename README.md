@@ -74,7 +74,7 @@ eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAt
 ./schat-cli user {create|update} \
 	[--username={UserName}] \
 	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
-	[--name="{Full_Name}"]
+	[--name="{Full_Name}"] \
 	[--debug]
 ```
 Example:
