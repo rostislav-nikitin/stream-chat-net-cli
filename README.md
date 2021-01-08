@@ -86,6 +86,26 @@ Updated at:	 1/5/2021 2:32:47 PM
 ```
 
 ### Channel type
+- Create channel type
+```console
+./schat-cli channelType create --name="TestChannel" --automod=ai --mutes=True --typingEvents=True
+```
+Typical result:
+```console
+Created at:		 1/5/2021 1:18:33 PM
+Udpated at:		 1/5/2021 1:18:33 PM
+Name:			 TestChannel
+Typing events:		 True
+Read events:		 False
+Connect events:		 False
+Search:			 1/5/2021 1:18:33 PM
+Reactions:		 False
+Replies:		 False
+Mutes:			 True
+Message retention:	 infinite
+Max message length:	 5000
+Automod:		 disabled
+```
 - List channel types
 ```console 
 ./schat-cli channelType list [--debug]
