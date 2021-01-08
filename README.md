@@ -113,7 +113,8 @@ Updated at:	 1/5/2021 2:32:47 PM
 ```
 Example:
 ```console
-./schat-cli channelType create --name="TestChannel" --automod=ai --mutes=True --typingEvents=True
+./schat-cli channelType create --name="TestChannel" \
+ 	--automod=ai --mutes=True --typingEvents=True
 ```
 Result:
 ```console
