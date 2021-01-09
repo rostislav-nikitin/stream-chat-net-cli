@@ -6,7 +6,7 @@ namespace StreamChat.Cli.Commands
 	using Microsoft.Extensions.Logging;
 	using StreamChat;
 
-	[CommandDescriptor("userToken", "create", "--userId={userId}")]
+	[CommandDescriptor("userToken", "create", "--userId={UserId}")]
 	internal class UserTokenCreate : ICommand
 	{
 		private readonly Client _client;
