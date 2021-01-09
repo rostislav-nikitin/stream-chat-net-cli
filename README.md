@@ -158,19 +158,6 @@ Message retention:	 infinite
 Max message length:	 5000
 Automod:		 disabled
 ```
-- Channel type list
-```console 
-./schat-cli channelType list [--debug]
-```
-Example:
-```console
-./schat-cli channelType list
-```
-Result:
-```console
-somestream
-messaging
-```
 - Channel type get
 ```console
 ./schat-cli channelType get --name={ChannelTypeName} [--debug]
@@ -194,4 +181,17 @@ Mutes:			 True
 Message retention:	 infinite
 Max message length:	 5000
 Automod:		 disabled
+```
+- Channel type list
+```console 
+./schat-cli channelType list [--debug]
+```
+Example:
+```console
+./schat-cli channelType list
+```
+Result:
+```console
+somestream
+messaging
 ```
