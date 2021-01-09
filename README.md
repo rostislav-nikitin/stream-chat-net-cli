@@ -55,31 +55,31 @@ Use a Visual Studio / Visual Studio Code
 ## Currently supported commands
 ### Help
 ./schat-cli --help
-### Token
-- Create user token
+### User token
+- User token create
 ```console 
-./schat-cli userToken create --username={UserName} [--debug]
+./schat-cli userToken create --userId={UserId} [--debug]
 ```
 Example:
 ```console
-./schat-cli userToken create --username=TestUser
+./schat-cli userToken create --userId=TestUser
 ```
 Result:
 ```console
 eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAtmimuDRQ14tq6iH5cYYm3F7K1sZS4P3w
 ```
-
-- Create/Update user
+### User
+- User create
 ```console 
-./schat-cli user {create|update} \
-	[--username={UserName}] \
+./schat-cli user create \
+	[--id={Id}] \
 	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
-	[--name="{Full_Name}"] \
+	[--name="{FullName}"] \
 	[--debug]
 ```
 Example:
 ```console
-./schat-cli user create username=TestUser role=User --name="Test User"
+./schat-cli user create --id=TestUser --role=User --name="Test User"
 ``` 
 Result:
 ```console
@@ -91,10 +91,36 @@ Deactivated at:
 Deactivated at: 
 Created at:	 1/5/2021 2:32:47 PM
 Updated at:	 1/5/2021 2:32:47 PM
+Name:		 Test User
+```
+
+- User update
+```console 
+./schat-cli user update \
+	--id={Id} \
+	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
+	[--name="{FullName}"] \
+	[--debug]
+```
+Example:
+```console
+./schat-cli user update --id=TestUser --role=User --name="Test User"
+``` 
+Result:
+```console
+ID:		 SomeId
+Role:		 user
+Online:		 False
+Last active:	 
+Deactivated at: 
+Deactivated at: 
+Created at:	 1/5/2021 2:32:47 PM
+Updated at:	 1/5/2021 2:32:47 PM
+Name:		 Test User
 ```
 
 ### Channel type
-- Create channel type
+- Channel type create
 ```console
 ./schat-cli channelType create \
 	 [--name={ChannelTypeName}] \
@@ -132,7 +158,7 @@ Message retention:	 infinite
 Max message length:	 5000
 Automod:		 disabled
 ```
-- List channel types
+- Channel type list
 ```console 
 ./schat-cli channelType list [--debug]
 ```
@@ -145,7 +171,7 @@ Result:
 somestream
 messaging
 ```
-- Get channel type
+- Channel type get
 ```console
 ./schat-cli channelType get --name={ChannelTypeName} [--debug]
 ```
