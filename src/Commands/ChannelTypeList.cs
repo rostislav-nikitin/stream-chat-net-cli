@@ -5,6 +5,7 @@ namespace StreamChat.Cli.Commands
 	using Microsoft.Extensions.Logging;
 	using StreamChat;
 
+	[CommandDescriptor("channelType", "list")]
 	internal class ChannelTypeList : ICommand
 	{
 		private readonly Client _client;

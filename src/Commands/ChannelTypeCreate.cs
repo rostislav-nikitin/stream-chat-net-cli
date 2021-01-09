@@ -9,6 +9,19 @@ namespace StreamChat.Cli.Commands
     using StreamChat;
     using StreamChat.Cli;
 
+    [CommandDescriptor("channelType", "create", new [] {
+        "[--name={ChannelTypeName}]", 
+        "[--automod={AI|Disabled(default)|Simple}]", 
+        "[--mutes={True|False}]", 
+        "[--connectEvents={True|False}]",
+        "[--maxMessageLength={MaxMessageLength}]",
+        "[--messageRetention={MessageRetention}]", 
+        "[--reactions={True|False}]", 
+        "[--readEvents={True|False}]", 
+        "[--replies={True|False}]", 
+        "[--search={True|False}]", 
+        "[--typingEvents={True|False}]",
+        "[--commands=\"{Command1 Command2 ... CommandN}\"]"})]
     public class ChannelTypeCreate : ICommand
     {
         private readonly Client _client;

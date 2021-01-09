@@ -7,17 +7,17 @@ namespace StreamChat.Cli.Commands
     using StreamChat;
     using StreamChat.Cli.Commands.Extensions;
 
-	[CommandDescriptor("user", "update", new [] {
-		"--id={id}",
+	[CommandDescriptor("user", "create", new [] {
+		"[--id={id}]", 
 		"[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}]",
 		"[--name={FullName}]"})]
-    internal class UserUpdate : ICommand
+    internal class UserCreate : ICommand
 	{
 		private readonly Client _client;
 		private readonly IConfiguration _configuration;
 		private readonly ILogger<Command> _logger;
 
-		public UserUpdate(Client client, 
+		public UserCreate(Client client, 
 						IConfiguration configuration,
 						ILogger<Command> logger)
 		{
@@ -30,10 +30,8 @@ namespace StreamChat.Cli.Commands
 		{
 			_logger.LogInformation("Executing");
 
-			var id = _configuration.GetValue<string>("id");
+			var id = _configuration.GetValue<string>("id", Guid.NewGuid().ToString());
 			_logger.LogInformation($"ID: {id}");
-			if(string.IsNullOrWhiteSpace(id))
-				throw new ArgumentException("Invalid parameter: \"id\" is null of white space.");
 
 			var role = _configuration.GetValue<string>("role", Role.User)?.ToLowerInvariant();
 			_logger.LogInformation($"Role: {role.ToLowerInvariant()}");

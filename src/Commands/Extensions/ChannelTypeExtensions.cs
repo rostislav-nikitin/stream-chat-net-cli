@@ -39,6 +39,7 @@ namespace StreamChat.Cli.Commands.Extensions
 			result.AppendLine($"Deactivated at: {user.DeletedAt}");
 			result.AppendLine($"Created at:\t {user.CreatedAt}");
 			result.AppendLine($"Updated at:\t {user.UpdatedAt}");
+			result.AppendLine($"Name:\t\t {user.GetData<string>("name")}");
 
 			return result.ToString();
 		}

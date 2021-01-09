@@ -10,7 +10,8 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/StreamChat.Cli.dll",
-            "args": ["channelType", "create","--name=\"TestChannel1\"", "--automod=Disabled", "--mutes=False", "--commands=\"Ban Man\""],
+            //"args": ["channelType", "create","--name=\"TestChannel1\"", "--automod=Disabled", "--mutes=False", "--commands=\"Ban Man\""],
+            "args": ["user", "create"],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopAtEntry": false
