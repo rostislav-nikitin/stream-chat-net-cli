@@ -9,6 +9,8 @@ The Stream Chat CLI (Command Line Interface)
 ## Clone
 ```console
 git clone https://github.com/rostislav-nikitin/stream-chat-net-cli.git
+
+cd stream-chat-net-cli/src
 ```
 
 ## Build
@@ -29,19 +31,10 @@ For this init your user secrets and add the ConnectionStrings:StreamChat key:
 ```console
 make set-connection-string "API_KEY, API_SECRET"
 ```
-### Linux
+### Build & Test
 ```console
-cd ./src
-
-#build
-make build
-
-#run some test command
-make test
+make build test
 ```
-
-### Windows
-Use a Visual Studio / Visual Studio Code
 
 ## Currently supported commands
 ### Help
