@@ -179,3 +179,11 @@ Result:
 somestream
 messaging
 ```
+- Channel type delete
+```console
+./schat-cli channelType delete --name={ChannelTypeName} [--debug]
+```
+Example:
+```console
+./schat-cli channelType delete --name="TestChannel"
+```
