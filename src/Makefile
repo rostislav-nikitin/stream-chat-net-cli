@@ -1,6 +1,6 @@
 build:
 	dotnet build
-connection:
+set-connection-string:
 	dotnet user-secrets init
 	dotnet user-secrets set "ConnectionStrings:StreamChat" "$(KEY)"
 test:
