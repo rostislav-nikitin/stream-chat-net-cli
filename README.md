@@ -25,14 +25,9 @@ Use this scenario if you will **NOT** commit your changes. Otherwise the appsett
 ```
 #### Scenario 2. Use secret manager
 Use this scenario if you will commit your changes into the public repository. In this case SreamChat API_KEY / API_SECRET will be **NOT** commited into the repo.
-For this init your user secrets and add the ConnectionStrings:StreamChat:
+For this init your user secrets and add the ConnectionStrings:StreamChat key:
 ```console
-make connection "API_KEY, API_SECRET"
-```
-or
-```console
-dotnet user-secrets init
-dotnet user-secrets set "ConnectionStrings:StreamChat" "API_KEY, API_SECRET"
+make set-connection-string "API_KEY, API_SECRET"
 ```
 ### Linux
 ```console
