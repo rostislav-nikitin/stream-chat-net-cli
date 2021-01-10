@@ -1,5 +1,8 @@
 build:
 	dotnet build
+connection:
+	dotnet user-secrets init
+	dotnet user-secrets set "ConnectionStrings:StreamChat" "$(KEY)"
 test:
 	export ASPNETCORE_ENVIRONMENT=Development
 	dotnet ./bin/Debug/netcoreapp3.1/StreamChat.Cli.dll userToken create --username=TestUser --debug
