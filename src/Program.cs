@@ -91,6 +91,7 @@ namespace StreamChat.Cli
 
 			configBuilder.AddJsonFile("appsettings.json", true, true);
 			configBuilder.AddJsonFile($"appsettings.{environmentName}.json", true, true);
+			configBuilder.AddUserSecrets<Program>();
 
 			_configuration = configBuilder.Build();
 
@@ -126,11 +127,11 @@ namespace StreamChat.Cli
 
 		private static Client CreateStreamChatClient(IServiceCollection services)
 		{
-			const string ConnectionStringKey = "StreamChat";
+			const string ConnectionStringKey = "ConnectionStrings:StreamChat";
 			const string ConnectionStringSeparator = ",";
 
 			// Get api key / secret
-			var connectionString = _configuration.GetConnectionString(ConnectionStringKey);
+			var connectionString = _configuration.GetValue<string>(ConnectionStringKey);
 			var connectionStringParts = connectionString.Split(ConnectionStringSeparator);
 			_apiKey = connectionStringParts[0].Trim();
 			_apiSecret = connectionStringParts[1].Trim();
