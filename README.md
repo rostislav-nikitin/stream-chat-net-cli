@@ -123,7 +123,7 @@ Name:		 Test User
 ```
 Example:
 ```console
-./schat-cli channelType create --name="TestChannel" \
+./schat-cli channelType create --name=TestChannel \
  	--automod=ai --mutes=True --typingEvents=True
 ```
 Result:
@@ -185,5 +185,5 @@ messaging
 ```
 Example:
 ```console
-./schat-cli channelType delete --name="TestChannel"
+./schat-cli channelType delete --name=TestChannel
 ```
