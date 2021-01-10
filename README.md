@@ -13,8 +13,8 @@ git clone https://github.com/rostislav-nikitin/stream-chat-net-cli.git
 
 ## Build
 ### Set app settings with your custom API_KEY / API_SECRET
-#### Scenario 1. Replace API_KEY / API_SECRET in the appsettings.json
-Use this scenario if you will *NOT* commit your changes. Otherwise the appsettings.json width you sensitive data will be commited into the repo.
+#### Scenario 1. Replace API_KEY / API_SECRET in the appsettings.json or appsettings.Development.json
+Use this scenario if you will **NOT** commit your changes. Otherwise the appsettings.json width you sensitive data will be commited into the repo.
 ```JSON
 {
 	"ConnectionStrings":
@@ -23,20 +23,16 @@ Use this scenario if you will *NOT* commit your changes. Otherwise the appsettin
 	}
 }
 ```
-#### Scenario 2. Create an appsettings.Development.json
-Use this scenarion if you will commit your changes. The `appsettings.Development.json` inside a .gitignore. And it will not be commited into the repo.
-* Create an appsettings.Development.json as below with your API_KEY / API_SECRET
-```JSON
-{
-	"ConnectionStrings":
-	{
-		"StreamChat": "API_KEY, API_SECRET"
-	}
-}
+#### Scenario 2. Use secret manager
+Use this scenario if you will commit your changes into the public repository. In this case SreamChat API_KEY / API_SECRET will be **NOT** commited into the repo.
+For this init your user secrets and add the ConnectionStrings:StreamChat:
+```console
+make connection "API_KEY, API_SECRET"
 ```
-* Uncomment a line below inside a StreamChat.Cli.cspoj.
-```JSON
-<None Include="appsettings.Development.json" CopyToOutputDirectory="Always" />
+or
+```console
+dotnet user-secrets init
+dotnet user-secrets set "ConnectionStrings:StreamChat" "API_KEY, API_SECRET"
 ```
 ### Linux
 ```console
