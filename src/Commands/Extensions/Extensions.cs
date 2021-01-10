@@ -1,6 +1,7 @@
 namespace StreamChat.Cli.Commands.Extensions
 {
-	using System.Text;
+    using System;
+    using System.Text;
 	
     public static class Extensions
     {
@@ -42,6 +43,11 @@ namespace StreamChat.Cli.Commands.Extensions
 			result.AppendLine($"Name:\t\t {user.GetData<string>("name")}");
 
 			return result.ToString();
+		}
+
+		public static ArgumentException GetInvalidParameterNullOrWhiteSpaceException(string name)
+		{
+			return new ArgumentException($"Invalid parameter: \"--{name}\" is null of white space.");
 		}
         
     }

@@ -29,7 +29,7 @@ namespace StreamChat.Cli.Commands
 			var userId = _configuration.GetValue<string>("userId");
 			_logger.LogInformation($"Username: {userId}");
 			if(string.IsNullOrWhiteSpace(userId))
-				throw new ArgumentException("Invalid parameter: \"userId\" is null or white space.");
+				throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(userId));
 
 			var result = _client.CreateUserToken(userId);
 

@@ -53,7 +53,6 @@ namespace StreamChat.Cli.Commands
 				user.SetData("name", name);
 			}	
 
-
 			User userFromDB = await _client.Users.Update(user);
 			
 			_logger.LogInformation("Executed");

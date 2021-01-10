@@ -33,7 +33,7 @@ namespace StreamChat.Cli.Commands
 			var id = _configuration.GetValue<string>("id");
 			_logger.LogInformation($"ID: {id}");
 			if(string.IsNullOrWhiteSpace(id))
-				throw new ArgumentException("Invalid parameter: \"id\" is null of white space.");
+				throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(id));
 
 			var role = _configuration.GetValue<string>("role", Role.User)?.ToLowerInvariant();
 			_logger.LogInformation($"Role: {role.ToLowerInvariant()}");

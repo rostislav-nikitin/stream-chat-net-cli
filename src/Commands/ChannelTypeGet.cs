@@ -30,7 +30,7 @@ namespace StreamChat.Cli.Commands
 			var name = _configuration.GetValue<string>("name");
 			_logger.LogInformation($"Name: {name}");
 			if(string.IsNullOrWhiteSpace(name))
-				throw new ArgumentException("Invalid parameter: \"name\" is null of white space.");
+				throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(name));
 
 			var channelTypes = await _client.ListChannelTypes();
 			var result = channelTypes[name]?.ToInfo();
