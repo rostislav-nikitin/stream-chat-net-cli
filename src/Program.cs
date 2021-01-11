@@ -117,11 +117,14 @@ namespace StreamChat.Cli
 
 			services.AddTransient<ICommand, UserTokenCreate>();
 			services.AddTransient<ICommand, UserCreate>();
+			services.AddTransient<ICommand, UserList>();
 			services.AddTransient<ICommand, UserUpdate>();
 			services.AddTransient<ICommand, ChannelTypeList>();
 			services.AddTransient<ICommand, ChannelTypeGet>();
 			services.AddTransient<ICommand, ChannelTypeCreate>();
 			services.AddTransient<ICommand, ChannelTypeDelete>();
+			services.AddTransient<ICommand, ChannelCreate>();
+			services.AddTransient<ICommand, ChannelList>();
 
 			services.AddSingleton(CreateStreamChatClient(services));
 		}

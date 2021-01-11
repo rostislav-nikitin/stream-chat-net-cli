@@ -28,6 +28,11 @@ namespace StreamChat.Cli.Commands.Extensions
 			return result.ToString();
 		}
 
+		public static string ToPreview(this User user)
+		{
+			return $"ID: {user.ID, -38}\t Role: {user.Role}\t Online: {user.Online}\t Last Active: {user.LastActive}";
+		}
+
 		public static string ToInfo(this User user)
 		{
 			StringBuilder result = new StringBuilder();
@@ -41,6 +46,28 @@ namespace StreamChat.Cli.Commands.Extensions
 			result.AppendLine($"Created at:\t {user.CreatedAt}");
 			result.AppendLine($"Updated at:\t {user.UpdatedAt}");
 			result.AppendLine($"Name:\t\t {user.GetData<string>("name")}");
+
+			return result.ToString();
+		}
+		public static string ToPreview(this ChannelState channelState)
+		{
+			return $"CID: {channelState.Channel.CID, -72}\t Frozen: {channelState.Channel.Frozen}\t Member Count: {channelState.Channel.MemberCount}\t Created By: {channelState.Channel.CreatedBy?.ID, -20}\t Created At: {channelState.Channel.CreatedAt}";
+		}
+
+		public static string ToInfo(this ChannelState channelState)
+		{
+			StringBuilder result = new StringBuilder();
+
+			result.AppendLine($"ID:\t\t\t {channelState.Channel.ID}");
+			result.AppendLine($"Type:\t\t\t {channelState.Channel.Type}");
+			result.AppendLine($"CID:\t\t\t {channelState.Channel.CID}");
+			result.AppendLine($"Created By:\t\t {channelState.Channel.CreatedBy?.ID}");
+			result.AppendLine($"Created At:\t\t {channelState.Channel.CreatedAt}");
+			result.AppendLine($"Updated At:\t\t {channelState.Channel.UpdatedAt}");
+			result.AppendLine($"Deleted At:\t\t {channelState.Channel.DeletedAt}");
+			result.AppendLine($"Last Message At:\t {channelState.Channel.LastMessageAt}");
+			result.AppendLine($"Frozen:\t\t\t {channelState.Channel.Frozen}");
+			result.AppendLine($"Member Count:\t\t {channelState.Channel.MemberCount}");
 
 			return result.ToString();
 		}
