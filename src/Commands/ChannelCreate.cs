@@ -56,8 +56,6 @@ namespace StreamChat.Cli.Commands
             var channelState = await channel.Create(creator, usersList);
 
             return channelState.ToInfo();
-
-                        
         }
     }
 }
