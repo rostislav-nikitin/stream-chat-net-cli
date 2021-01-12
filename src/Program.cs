@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
@@ -115,16 +116,16 @@ namespace StreamChat.Cli
 				services.AddLogging();
 			}
 
-			services.AddTransient<ICommand, UserTokenCreate>();
-			services.AddTransient<ICommand, UserCreate>();
-			services.AddTransient<ICommand, UserList>();
-			services.AddTransient<ICommand, UserUpdate>();
-			services.AddTransient<ICommand, ChannelTypeList>();
-			services.AddTransient<ICommand, ChannelTypeGet>();
-			services.AddTransient<ICommand, ChannelTypeCreate>();
-			services.AddTransient<ICommand, ChannelTypeDelete>();
-			services.AddTransient<ICommand, ChannelCreate>();
-			services.AddTransient<ICommand, ChannelList>();
+			Assembly.GetExecutingAssembly()
+				.GetTypes()
+				.ToList()
+				.Where(
+					type => type.FindInterfaces((i, o) => i == typeof(ICommand), null).Any())
+				.ToList()
+				.ForEach(type =>
+				{
+						services.AddTransient(typeof(ICommand), type);
+				});
 
 			services.AddSingleton(CreateStreamChatClient(services));
 		}
