@@ -77,7 +77,17 @@ Created at:	 1/5/2021 2:32:47 PM
 Updated at:	 1/5/2021 2:32:47 PM
 Name:		 Test User
 ```
-
+- User list
+```console 
+./schat-cli user list [--debug]
+```
+Example:
+```console
+1	ID: 1eccb4f7-ccf7-4e1e-b2eb-64a51557defc  	 Role: user	 Online: False	 Last Active: 
+2	ID: 24c3b87d-e471-460a-8d9a-bb10ec4b3730  	 Role: admin	 Online: False	 Last Active: 
+3	ID: 3d8ad1fe-d580-42ff-8fa6-88f548e69c1a  	 Role: user	 Online: False	 Last Active:
+...
+```
 - User update
 ```console 
 ./schat-cli user update \
@@ -102,7 +112,6 @@ Created at:	 1/5/2021 2:32:47 PM
 Updated at:	 1/5/2021 2:32:47 PM
 Name:		 Test User
 ```
-
 ### Channel type
 - Channel type create
 ```console
@@ -186,4 +195,45 @@ messaging
 Example:
 ```console
 ./schat-cli channelType delete --name=TestChannel
+```
+### Channel
+- Channel create
+```console
+channel create \
+	[--id={ChannelID}] \
+	--type={ChannelType} \
+	--creator={UserId} \
+	[--users="{UserId1 UserId2...UserIdN}"]
+```
+Example:
+```console
+./schat-cli channel create --id="TestChannel" --type=TestChannelType --creator=TestUserId --users="TestUserId AnotherTestUserId"
+```
+```
+ID:			 TestChannel
+Type:			 TestChannelType
+CID:			 TestChannelType:TestChannel
+Created By:		 TestUserId
+Created At:		 1/12/2021 12:11:00 AM
+Updated At:		 1/12/2021 12:11:00 AM
+Deleted At:		 
+Last Message At:	 
+Frozen:			 False
+Member Count:		 2
+```
+Result:
+
+- Channel list
+```console 
+./schat-cli channel list [--debug]
+```
+Example:
+```console
+./schat-cli channel list
+```
+Result:
+```console
+1        CID: TestChannelType:TestChannel	 Frozen: False	 Member Count: 1	 Created By: 1eccb4f7	 Created At: 1/11/2021 11:30:56 PM
+2	 CID: 93ecdad8:b9458a72	                 Frozen: False	 Member Count: 1	 Created By: 64a51557	 Created At: 1/11/2021 11:29:15 PM
+...
 ```
