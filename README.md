@@ -207,13 +207,13 @@ channel create \
 ```
 Example:
 ```console
-./schat-cli channel create --id="TestChannel" --type=TestChannelType --creator=TestUserId --users="TestUserId AnotherTestUserId"
+./schat-cli channel create --id="TestChannel" --type=TestChannelType --creator=TestUser --users="TestUser AnotherTestUser"
 ```
 ```console
 ID:			 TestChannel
 Type:			 TestChannelType
 CID:			 TestChannelType:TestChannel
-Created By:		 TestUserId
+Created By:		 TestUser
 Created At:		 1/12/2021 12:11:00 AM
 Updated At:		 1/12/2021 12:11:00 AM
 Deleted At:		 
@@ -233,7 +233,7 @@ Example:
 ```
 Result:
 ```console
-1        CID: TestChannelType:TestChannel	 Frozen: False	 Member Count: 1	 Created By: 1eccb4f7	 Created At: 1/11/2021 11:30:56 PM
+1        CID: TestChannelType:TestChannel	 Frozen: False	 Member Count: 2	 Created By: TestUser	 Created At: 1/11/2021 11:30:56 PM
 2	 CID: 93ecdad8:b9458a72	                 Frozen: False	 Member Count: 1	 Created By: 64a51557	 Created At: 1/11/2021 11:29:15 PM
 ...
 ```
