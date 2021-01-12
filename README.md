@@ -42,11 +42,13 @@ make build test
 ### User token
 - User token create
 ```console 
-./schat-cli userToken create --userId={UserId} [--debug]
+./schat-cli userToken create
+	--userId={UserId}
+	[--debug]
 ```
 Example:
 ```console
-./schat-cli userToken create --userId=TestUser
+./schat-cli userToken create --user=TestUser
 ```
 Result:
 ```console
@@ -79,7 +81,8 @@ Name:		 Test User
 ```
 - User list
 ```console 
-./schat-cli user list [--debug]
+./schat-cli user list 
+	[--debug]
 ```
 Example:
 ```console
@@ -153,7 +156,9 @@ Automod:		 disabled
 ```
 - Channel type get
 ```console
-./schat-cli channelType get --name={ChannelTypeName} [--debug]
+./schat-cli channelType get 
+	 --name={ChannelTypeName}
+	 [--debug]
 ```
 Example:
 ```console
@@ -177,7 +182,8 @@ Automod:		 disabled
 ```
 - Channel type list
 ```console 
-./schat-cli channelType list [--debug]
+./schat-cli channelType list
+	 [--debug]
 ```
 Example:
 ```console
@@ -190,7 +196,9 @@ messaging
 ```
 - Channel type delete
 ```console
-./schat-cli channelType delete --name={ChannelTypeName} [--debug]
+./schat-cli channelType delete
+	--name={ChannelTypeName}
+	[--debug]
 ```
 Example:
 ```console
@@ -207,8 +215,9 @@ channel create \
 ```
 Example:
 ```console
-./schat-cli channel create --id="TestChannel" --type=TestChannelType --creator=TestUser --users="TestUser AnotherTestUser"
+./schat-cli channel create --id=TestChannel --type=TestChannelType --creator=TestUser --users="TestUser AnotherTestUser"
 ```
+Result:
 ```console
 ID:			 TestChannel
 Type:			 TestChannelType
@@ -221,11 +230,10 @@ Last Message At:
 Frozen:			 False
 Member Count:		 2
 ```
-Result:
-
 - Channel list
 ```console 
-./schat-cli channel list [--debug]
+./schat-cli channel list
+	 [--debug]
 ```
 Example:
 ```console
