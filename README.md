@@ -38,7 +38,9 @@ make build test
 
 ## Currently supported commands
 ### Help
+```console
 ./schat-cli --help
+```
 ### User token
 - User token create
 ```console 
