@@ -43,7 +43,7 @@ make build test
 - User token create
 ```console 
 ./schat-cli userToken create
-	--userId={UserId}
+	--user={UserId}
 	[--debug]
 ```
 Example:
@@ -58,7 +58,7 @@ eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAt
 - User create
 ```console 
 ./schat-cli user create \
-	[--id={Id}] \
+	[--id={UserId}] \
 	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
 	[--name="{FullName}"] \
 	[--debug]
@@ -69,7 +69,7 @@ Example:
 ``` 
 Result:
 ```console
-ID:		 SomeId
+ID:		 TestUser
 Role:		 user
 Online:		 False
 Last active:	 
@@ -94,7 +94,7 @@ Example:
 - User update
 ```console 
 ./schat-cli user update \
-	--id={Id} \
+	--id={UserId} \
 	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
 	[--name="{FullName}"] \
 	[--debug]
@@ -105,7 +105,7 @@ Example:
 ``` 
 Result:
 ```console
-ID:		 SomeId
+ID:		 TestUser
 Role:		 user
 Online:		 False
 Last active:	 
