@@ -209,7 +209,7 @@ Example:
 ```console
 ./schat-cli channel create --id="TestChannel" --type=TestChannelType --creator=TestUserId --users="TestUserId AnotherTestUserId"
 ```
-```
+```console
 ID:			 TestChannel
 Type:			 TestChannelType
 CID:			 TestChannelType:TestChannel
