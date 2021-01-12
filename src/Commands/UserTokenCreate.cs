@@ -6,7 +6,7 @@ namespace StreamChat.Cli.Commands
 	using Microsoft.Extensions.Logging;
 	using StreamChat;
 
-	[CommandDescriptor("userToken", "create", "--userId={UserId}")]
+	[CommandDescriptor("userToken", "create", "--user={UserId}")]
 	internal class UserTokenCreate : ICommand
 	{
 		private readonly Client _client;
@@ -26,12 +26,12 @@ namespace StreamChat.Cli.Commands
 		{
 			_logger.LogInformation("Executing");
 
-			var userId = _configuration.GetValue<string>("userId");
-			_logger.LogInformation($"Username: {userId}");
-			if(string.IsNullOrWhiteSpace(userId))
-				throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(userId));
+			var user = _configuration.GetValue<string>("user");
+			_logger.LogInformation($"UserId: {user}");
+			if(string.IsNullOrWhiteSpace(user))
+				throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(user));
 
-			var result = _client.CreateUserToken(userId);
+			var result = _client.CreateUserToken(user);
 
 			_logger.LogInformation("Executed");
 

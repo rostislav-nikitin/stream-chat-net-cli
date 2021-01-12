@@ -8,7 +8,11 @@ using StreamChat.Cli.Commands.Extensions;
 
 namespace StreamChat.Cli.Commands
 {
-    [CommandDescriptor("channel", "create", "[--id={ChannelID}] --type={ChannelType} --creator={UserId} [--users=\"{UserId1 UserId2...UserIdN}\"]")]
+    [CommandDescriptor("channel", "create",new [] {
+        "[--id={ChannelID}]",
+        "--type={ChannelType}",
+        "--creator={UserId}",
+        "[--users=\"{UserId1 UserId2...UserIdN}\"]"})]
     public class ChannelCreate : ICommand
     {
         private readonly Client _client;
@@ -30,23 +34,26 @@ namespace StreamChat.Cli.Commands
             const char ListSeparator = ' ';
 
             var id = _configuration.GetValue<string>("id", Guid.NewGuid().ToString());
+            _logger.LogInformation($"Id: {id}");
 
             var type = _configuration.GetValue<string>("type");
             if(string.IsNullOrWhiteSpace(type))
                 throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(type));
-            _logger.LogInformation($"type: {type}");
+            _logger.LogInformation($"Type: {type}");
 
             var creator = _configuration.GetValue<string>("creator");
             if(string.IsNullOrWhiteSpace(creator))
                 throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(creator));
-            _logger.LogInformation($"creator: {creator}");
+            _logger.LogInformation($"Creator: {creator}");
 
             var channel = _client.Channel(type, id);
 
-            var users = _configuration.GetValue<string>("users", string.Empty)
-                .Split(ListSeparator, System.StringSplitOptions.RemoveEmptyEntries);
+            var users = _configuration.GetValue<string>("users", string.Empty);
+            _logger.LogInformation($"Users: {users}");
 
-            var channelState = await channel.Create(creator, users);
+            var usersList = users.Split(ListSeparator, System.StringSplitOptions.RemoveEmptyEntries);
+
+            var channelState = await channel.Create(creator, usersList);
 
             return channelState.ToInfo();
 
