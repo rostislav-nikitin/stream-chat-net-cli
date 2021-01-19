@@ -71,6 +71,11 @@ namespace StreamChat.Cli.Commands.Extensions
 
 			return result.ToString();
 		}
+		
+		public static string ToPreview(this Message message)
+		{
+			return $"ID: {message.ID, -38} Type: {message.Type, -10} Created at: {message.CreatedAt:yyyy/MM/dd HH:mm:ss}  Reply count: {message.ReplyCount, -3} Text: {message.Text}";
+		}
 
 		public static ArgumentException GetInvalidParameterNullOrWhiteSpaceException(string name)
 		{
