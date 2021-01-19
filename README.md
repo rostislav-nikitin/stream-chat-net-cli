@@ -206,10 +206,27 @@ Example:
 ```console
 ./schat-cli channelType delete --name=TestChannel
 ```
+
+### Channel Message
+- Channel message list
+```console
+./schat-cli channelMessage list
+	--channelId={ChannelId}
+```
+Example:
+```console
+./schat-cli channelMessage list --channelId="TestChannel"
+```
+Result:
+```console
+ID: 32a94395-227a-4a57-9f3a-6a44f236db32   Type: regular    Created at: 2020/12/22 10:56:26  Reply count: 1   Text: Hi there
+ID: fd4f7eaa-75e1-4e76-b4d1-eb821633255c   Type: regular    Created at: 2020/12/30 06:59:24  Reply count: 0   Text: Glad to see you
+ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular    Created at: 2021/01/04 09:18:42  Reply count: 0   Text: Bye
+```
 ### Channel
 - Channel create
 ```console
-channel create \
+./schat-cli channel create \
 	[--id={ChannelID}] \
 	--type={ChannelType} \
 	--creator={UserId} \
