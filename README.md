@@ -210,7 +210,7 @@ Example:
 ### Channel Message
 - Channel message list
 ```console
-channelMessage list
+./schat-cli channelMessage list
 	--channelId={ChannelId}
 ```
 Example:
@@ -226,7 +226,7 @@ ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular    Created at: 2021/01/
 ### Channel
 - Channel create
 ```console
-channel create \
+./schat-cli channel create \
 	[--id={ChannelID}] \
 	--type={ChannelType} \
 	--creator={UserId} \
