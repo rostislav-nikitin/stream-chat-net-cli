@@ -11,7 +11,7 @@ namespace StreamChat.Cli.Commands
 {
     [CommandDescriptor("channelMessage", "list", new[]
     {
-        "channelId={ChannleId}"
+        "--channelId={ChannelId}"
     })]
     public class ChannelMessageList : ICommand
     {
@@ -34,7 +34,6 @@ namespace StreamChat.Cli.Commands
         public async Task<string> Execute()
         {
             const int ChannelsLimitDefault = 100;
-            //const int MessagesLimitDefault = 100;
 
             var channelId = _configuration.GetValue<string>("channelId", null);
             if(string.IsNullOrWhiteSpace(channelId))
