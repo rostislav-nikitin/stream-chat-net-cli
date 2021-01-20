@@ -15,9 +15,9 @@ namespace StreamChat.Cli.Commands
     })]
     public class ChannelMessageList : ICommand
     {
-        public Client _clinet;
-        IConfiguration _configuration;
-        public ILogger<ChannelMessageList> _logger;
+        private readonly Client _clinet;
+        private readonly IConfiguration _configuration;
+        private readonly ILogger<ChannelMessageList> _logger;
 
         public ChannelMessageList(
             Client clinet,
@@ -38,6 +38,7 @@ namespace StreamChat.Cli.Commands
             var channelId = _configuration.GetValue<string>("channelId", null);
             if(string.IsNullOrWhiteSpace(channelId))
                 throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(channelId));
+            _logger.LogInformation($"Channel id: {channelId}");
 
             QueryChannelsOptions opts = new QueryChannelsOptions();
             opts.WithLimit(ChannelsLimitDefault);
