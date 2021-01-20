@@ -264,3 +264,13 @@ Result:
 2	 CID: 93ecdad8:b9458a72	                 Frozen: False	 Member Count: 1	 Created By: 64a51557	 Created At: 1/11/2021 11:29:15 PM
 ...
 ```
+
+### Message
+- Message delete
+```console
+./schat-cli message delete
+	--id={MessageId}
+```
+Example:
+```console
+./schat-cli message delete --id=TestMessage
