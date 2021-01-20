@@ -270,6 +270,7 @@ Result:
 ```console
 ./schat-cli message delete
 	--id={MessageId}
+	[--debug]
 ```
 Example:
 ```console
