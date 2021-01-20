@@ -212,6 +212,7 @@ Example:
 ```console
 ./schat-cli channelMessage list
 	--channelId={ChannelId}
+	[--debug]
 ```
 Example:
 ```console
@@ -231,6 +232,7 @@ ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular    Created at: 2021/01/
 	--type={ChannelType} \
 	--creator={UserId} \
 	[--users="{UserId1 UserId2...UserIdN}"]
+	[--debug]
 ```
 Example:
 ```console
@@ -264,3 +266,14 @@ Result:
 2	 CID: 93ecdad8:b9458a72	                 Frozen: False	 Member Count: 1	 Created By: 64a51557	 Created At: 1/11/2021 11:29:15 PM
 ...
 ```
+
+### Message
+- Message delete
+```console
+./schat-cli message delete
+	--id={MessageId}
+	[--debug]
+```
+Example:
+```console
+./schat-cli message delete --id=TestMessage
