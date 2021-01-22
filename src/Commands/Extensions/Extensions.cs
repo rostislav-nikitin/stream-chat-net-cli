@@ -81,6 +81,19 @@ namespace StreamChat.Cli.Commands.Extensions
 		{
 			return new ArgumentException($"Invalid parameter: \"--{name}\" is null of white space.");
 		}
+
+		public static string ToInfo(this Message message)
+		{
+			StringBuilder result = new StringBuilder();
+
+			result.AppendLine($"ID:\t\t {message.ID}");
+			result.AppendLine($"Type:\t\t {message.Type, -10}");
+			result.AppendLine($"Created at:\t {message.CreatedAt:yyyy/MM/dd HH:mm:ss}");
+			result.AppendLine($"Reply count:\t {message.ReplyCount, -3}");
+			result.AppendLine($"Text:\t\t {message.Text}");
+
+			return result.ToString();
+		}
         
     }
 }
