@@ -206,24 +206,6 @@ Example:
 ```console
 ./schat-cli channelType delete --name=TestChannel
 ```
-
-### Channel Message
-- Channel message list
-```console
-./schat-cli channelMessage list
-	--channelId={ChannelId}
-	[--debug]
-```
-Example:
-```console
-./schat-cli channelMessage list --channelId="TestChannel"
-```
-Result:
-```console
-ID: 32a94395-227a-4a57-9f3a-6a44f236db32   Type: regular    Created at: 2020/12/22 10:56:26  Reply count: 1   Text: Hi there
-ID: fd4f7eaa-75e1-4e76-b4d1-eb821633255c   Type: regular    Created at: 2020/12/30 06:59:24  Reply count: 0   Text: Glad to see you
-ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular    Created at: 2021/01/04 09:18:42  Reply count: 0   Text: Bye
-```
 ### Channel
 - Channel create
 ```console
@@ -266,7 +248,44 @@ Result:
 2	 CID: 93ecdad8:b9458a72	                 Frozen: False	 Member Count: 1	 Created By: 64a51557	 Created At: 1/11/2021 11:29:15 PM
 ...
 ```
+### Channel Message
+- Channel message list
+```console
+./schat-cli channelMessage list
+	--channelId={ChannelId}
+	[--debug]
+```
+Example:
+```console
+./schat-cli channelMessage list --channelId="TestChannel"
+```
+Result:
+```console
+ID: 32a94395-227a-4a57-9f3a-6a44f236db32   Type: regular    Created at: 2020/12/22 10:56:26  Reply count: 1   Text: Hi there
+ID: fd4f7eaa-75e1-4e76-b4d1-eb821633255c   Type: regular    Created at: 2020/12/30 06:59:24  Reply count: 0   Text: Glad to see you
+ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular    Created at: 2021/01/04 09:18:42  Reply count: 0   Text: Bye
+```
 
+- Channel message send
+```console
+./schat-cli channelMessage send
+	--channelId={ChannelId}
+	--userId={UserId}
+	--message={"Message text"}
+	[--debug]
+```
+Example:
+```console
+./schat-cli channelMessage send --channelId=TestChannel --userId=TestUser --message="Hi there!"
+```
+Result:
+```console
+ID:              a0b1033b-db0f-48e9-8f41-ad9bac68ca52
+Type:            regular   
+Created at:      2021/01/22 22:31:25
+Reply count:     0  
+Text:            Hi there!
+```
 ### Message
 - Message delete
 ```console
