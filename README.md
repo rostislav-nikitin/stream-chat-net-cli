@@ -298,14 +298,14 @@ Text:            Hi there!
 ```
 Example:
 ```console
-./schat-cli channelMessage reply --channelId=TestChannel --userId=TestUser --messageId='a0b1033b-db0f-48e9-8f41-ad9bac68ca52' --message='I am fine, thank you.'
+./schat-cli channelMessage reply --channelId=TestChannel --userId=AnotherTestUser --messageId='a0b1033b-db0f-48e9-8f41-ad9bac68ca52' --message='I am fine, thank you.'
 ```
 Result:
 ```console
-ID:              b0b1012f-1b0f-48e5-8a41-ad9bac68ca51
-Type:            regular   
-User ID:         TestUser
-Created at:      2021/01/25 22:31:25
+ID:              b0b10726-32a7-1191-bc00-3ef0d56baa8b
+Type:            reply     
+User ID:         AnotherTestUser
+Created at:      2021/01/25 21:10:26
 Reply count:     0  
 Text:            I am fine, thank you.
 ```
