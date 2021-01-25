@@ -4,7 +4,7 @@ The Stream Chat CLI (Command Line Interface)
 ![Mindmap](https://github.com/rostislav-nikitin/stream-chat-net-cli/blob/main/mind_map.png)
 
 ## Requirements
-.NET Core 3.1
+.NET Core 5.0
 
 ## Clone
 ```console
@@ -62,12 +62,12 @@ eyJ0eTAiOiJKV1QfLCJhbGc6OiJIUz11NiJ9.eyt1c2VyX2lkIjoiU29tZVVzZXIifQ.gg2Lhd6fsvAt
 ./schat-cli user create \
 	[--id={UserId}] \
 	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
-	[--name="{FullName}"] \
+	[--name='{FullName}'] \
 	[--debug]
 ```
 Example:
 ```console
-./schat-cli user create --id=TestUser --role=User --name="Test User"
+./schat-cli user create --id=TestUser --role=User --name='Test User'
 ``` 
 Result:
 ```console
@@ -98,12 +98,12 @@ Example:
 ./schat-cli user update \
 	--id={UserId} \
 	[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}] \
-	[--name="{FullName}"] \
+	[--name='{FullName}'] \
 	[--debug]
 ```
 Example:
 ```console
-./schat-cli user update --id=TestUser --role=User --name="Test User"
+./schat-cli user update --id=TestUser --role=User --name='Test User'
 ``` 
 Result:
 ```console
@@ -132,7 +132,7 @@ Name:		 Test User
 	 [--replies={True|False}] \
 	 [--search={True|False}] \
 	 [--typingEvents={True|False}] \
-	 [--commands="{Command1 Command2 ... CommandN}"] \
+	 [--commands='{Command1 Command2 ... CommandN}'] \
 	 [--debug]
 ```
 Example:
@@ -213,12 +213,12 @@ Example:
 	[--id={ChannelID}] \
 	--type={ChannelType} \
 	--creator={UserId} \
-	[--users="{UserId1 UserId2...UserIdN}"]
+	[--users='{UserId1 UserId2...UserIdN}']
 	[--debug]
 ```
 Example:
 ```console
-./schat-cli channel create --id=TestChannel --type=TestChannelType --creator=TestUser --users="TestUser AnotherTestUser"
+./schat-cli channel create --id=TestChannel --type=TestChannelType --creator=TestUser --users='TestUser AnotherTestUser'
 ```
 Result:
 ```console
@@ -257,13 +257,13 @@ Result:
 ```
 Example:
 ```console
-./schat-cli channelMessage list --channelId="TestChannel"
+./schat-cli channelMessage list --channelId='TestChannel'
 ```
 Result:
 ```console
-ID: 32a94395-227a-4a57-9f3a-6a44f236db32   Type: regular    Created at: 2020/12/22 10:56:26  Reply count: 1   Text: Hi there
-ID: fd4f7eaa-75e1-4e76-b4d1-eb821633255c   Type: regular    Created at: 2020/12/30 06:59:24  Reply count: 0   Text: Glad to see you
-ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular    Created at: 2021/01/04 09:18:42  Reply count: 0   Text: Bye
+ID: 32a94395-227a-4a57-9f3a-6a44f236db32   Type: regular   User ID: TestUser1   Created at: 2020/12/22 10:56:26  Reply count: 1   Text: Hi there
+ID: fd4f7eaa-75e1-4e76-b4d1-eb821633255c   Type: regular   User ID: TestUser2   Created at: 2020/12/30 06:59:24  Reply count: 0   Text: Glad to see you
+ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular   User ID: TestUser1   Created at: 2021/01/04 09:18:42  Reply count: 0   Text: Bye
 ```
 
 - Channel message send
@@ -271,20 +271,43 @@ ID: 2f7f9afc-f79b-4b36-8e18-9108f80c24e1   Type: regular    Created at: 2021/01/
 ./schat-cli channelMessage send
 	--channelId={ChannelId}
 	--userId={UserId}
-	--message={"Message text"}
+	--message='{Message text}'
 	[--debug]
 ```
 Example:
 ```console
-./schat-cli channelMessage send --channelId=TestChannel --userId=TestUser --message="Hi there!"
+./schat-cli channelMessage send --channelId=TestChannel --userId=TestUser --message='Hi there!'
 ```
 Result:
 ```console
 ID:              a0b1033b-db0f-48e9-8f41-ad9bac68ca52
 Type:            regular   
+User ID:         TestUser
 Created at:      2021/01/22 22:31:25
 Reply count:     0  
 Text:            Hi there!
+```
+- Channel message reply
+```console
+./schat-cli channelMessage reply
+	--channelId={ChannelId}
+	--userId={UserId}
+	--messageId={MessageId}
+	--message='{Message text}'
+	[--debug]
+```
+Example:
+```console
+./schat-cli channelMessage reply --channelId=TestChannel --userId=TestUser --messageId='a0b1033b-db0f-48e9-8f41-ad9bac68ca52' --message='I am fine, thank you.'
+```
+Result:
+```console
+ID:              b0b1012f-1b0f-48e5-8a41-ad9bac68ca51
+Type:            regular   
+User ID:         TestUser
+Created at:      2021/01/25 22:31:25
+Reply count:     0  
+Text:            I am fine, thank you.
 ```
 ### Message
 - Message delete
