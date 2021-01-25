@@ -74,7 +74,7 @@ namespace StreamChat.Cli.Commands.Extensions
 		
 		public static string ToPreview(this Message message)
 		{
-			return $"ID: {message.ID, -38} Type: {message.Type, -10} Created at: {message.CreatedAt:yyyy/MM/dd HH:mm:ss}  Reply count: {message.ReplyCount, -3} Text: {message.Text}";
+			return $"ID: {message.ID, -38} Type: {message.Type, -10} User ID: {message.User.ID, -10} Created at: {message.CreatedAt:yyyy/MM/dd HH:mm:ss}  Reply count: {message.ReplyCount, -3} Text: {message.Text}";
 		}
 
 		public static ArgumentException GetInvalidParameterNullOrWhiteSpaceException(string name)
@@ -88,6 +88,7 @@ namespace StreamChat.Cli.Commands.Extensions
 
 			result.AppendLine($"ID:\t\t {message.ID}");
 			result.AppendLine($"Type:\t\t {message.Type, -10}");
+			result.AppendLine($"User ID:\t {message.User.ID, -10}");
 			result.AppendLine($"Created at:\t {message.CreatedAt:yyyy/MM/dd HH:mm:ss}");
 			result.AppendLine($"Reply count:\t {message.ReplyCount, -3}");
 			result.AppendLine($"Text:\t\t {message.Text}");

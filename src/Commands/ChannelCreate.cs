@@ -12,7 +12,7 @@ namespace StreamChat.Cli.Commands
         "[--id={ChannelID}]",
         "--type={ChannelType}",
         "--creator={UserId}",
-        "[--users=\"{UserId1 UserId2...UserIdN}\"]"})]
+        "[--users='{UserId1 UserId2...UserIdN}']"})]
     public class ChannelCreate : ICommand
     {
         private readonly Client _client;

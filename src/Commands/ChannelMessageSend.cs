@@ -11,7 +11,7 @@ namespace StreamChat.Cli.Commands
     {
         "--channelId={ChannelId}",
         "--userId={UserId}",
-        "--message={\"Message text\"}"
+        "--message='{Message text}'"
     })]
     public class ChannelMessageSend : ICommand
     {

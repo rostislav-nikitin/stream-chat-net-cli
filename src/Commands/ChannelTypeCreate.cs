@@ -21,7 +21,7 @@ namespace StreamChat.Cli.Commands
         "[--replies={True|False}]", 
         "[--search={True|False}]", 
         "[--typingEvents={True|False}]",
-        "[--commands=\"{Command1 Command2 ... CommandN}\"]"})]
+        "[--commands='{Command1 Command2 ... CommandN}']"})]
     public class ChannelTypeCreate : ICommand
     {
         private readonly Client _client;

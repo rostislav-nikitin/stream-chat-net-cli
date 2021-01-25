@@ -10,7 +10,7 @@ namespace StreamChat.Cli.Commands
 	[CommandDescriptor("user", "create", new [] {
 		"[--id={id}]", 
 		"[--role={Admin|Anonymous|Any|AnyAuthenticated|ChannelMember|ChannelModerator|Guest|User(default)}]",
-		"[--name={FullName}]"})]
+		"[--name='{FullName}']"})]
     internal class UserCreate : ICommand
 	{
 		private readonly Client _client;
