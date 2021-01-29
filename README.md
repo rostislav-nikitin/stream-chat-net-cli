@@ -84,6 +84,8 @@ Name:		 Test User
 - User list
 ```console 
 ./schat-cli user list 
+	[--limit={Limit(Default=100,Max=100)}]
+	[--offset={Offset(Default=0)}]
 	[--debug]
 ```
 Example:
@@ -185,7 +187,9 @@ Automod:		 disabled
 - Channel type list
 ```console 
 ./schat-cli channelType list
-	 [--debug]
+	[--limit={Limit(Default=100,Max=100)}]
+	[--offset={Offset(Default=0)}]
+	[--debug]
 ```
 Example:
 ```console
@@ -236,7 +240,9 @@ Member Count:		 2
 - Channel list
 ```console 
 ./schat-cli channel list
-	 [--debug]
+	[--limit={Limit(Default=100,Max=100)}]
+	[--offset={Offset(Default=0)}]
+	[--debug]
 ```
 Example:
 ```console
@@ -253,6 +259,8 @@ Result:
 ```console
 ./schat-cli channelMessage list
 	--channelId={ChannelId}
+	[--limit={Limit(Default=100,Max=100)}]
+	[--offset={Offset(Default=0)}]
 	[--debug]
 ```
 Example:
