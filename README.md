@@ -187,8 +187,6 @@ Automod:		 disabled
 - Channel type list
 ```console 
 ./schat-cli channelType list
-	[--limit={Limit(Default=100,Max=100)}]
-	[--offset={Offset(Default=0)}]
 	[--debug]
 ```
 Example:
