@@ -11,40 +11,33 @@ namespace StreamChat.Cli.Commands
 {
     [CommandDescriptor("channelMessage", "list", new[]
     {
-        "--channelId={ChannelId}"
+        "--channelId={ChannelId}",
+        "[--limit={Limit(Default=100,Max=100)}]",
+        "[--offset={Offset(Default=0)}]"
     })]
-    public class ChannelMessageList : ICommand
+    public class ChannelMessageList : CommandBase
     {
-        private readonly Client _clinet;
-        private readonly IConfiguration _configuration;
-        private readonly ILogger<ChannelMessageList> _logger;
-
         public ChannelMessageList(
-            Client clinet,
+            Client client,
             IConfiguration configuration,
-            ILogger<ChannelMessageList> logger)
+            ILogger<ChannelMessageList> logger) : base(client, configuration, logger)
             
         {
-            _clinet = clinet;
-            _configuration = configuration;
-            _logger = logger;
-
         }
 
-        public async Task<string> Execute()
+        public override async Task<string> Execute()
         {
-            const int ChannelsLimitDefault = 100;
-
             var channelId = _configuration.GetValue<string>("channelId", null);
             if(string.IsNullOrWhiteSpace(channelId))
                 throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(channelId));
             _logger.LogInformation($"Channel id: {channelId}");
 
             QueryChannelsOptions opts = new QueryChannelsOptions();
-            opts.WithLimit(ChannelsLimitDefault);
             opts.WithFilter(new Dictionary<string, object>() {{"id", channelId}});
+            opts.WithLimit(Limit);
+            opts.WithOffset(Offset);
             
-            var channels = await _clinet.QueryChannels(opts);
+            var channels = await _client.QueryChannels(opts);
             var channel = channels?.FirstOrDefault();
             if(channel == null)
                 throw new ArgumentException("Channel not exists.");

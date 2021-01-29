@@ -120,7 +120,8 @@ namespace StreamChat.Cli
 				.GetTypes()
 				.ToList()
 				.Where(
-					type => type.FindInterfaces((i, o) => i == typeof(ICommand), null).Any())
+					type => !type.IsAbstract
+						&& type.FindInterfaces((i, o) => i == typeof(ICommand), null).Any())
 				.ToList()
 				.ForEach(type =>
 				{

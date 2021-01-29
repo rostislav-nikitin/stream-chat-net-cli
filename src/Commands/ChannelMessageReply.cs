@@ -33,22 +33,22 @@ namespace StreamChat.Cli.Commands
         {
             var channelId = _configuration.GetValue<string>("channelId");
             if(string.IsNullOrWhiteSpace(channelId))
-                Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(channelId));
+                throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(channelId));
             _logger.LogInformation($"Channel ID: {channelId}");
 
             var userId = _configuration.GetValue<string>("userId");
             if(string.IsNullOrWhiteSpace(userId))
-                Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(userId));
+                throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(userId));
             _logger.LogInformation($"User ID: {userId}");
 
             var messageId = _configuration.GetValue<string>("messageId");
             if(string.IsNullOrWhiteSpace(messageId))
-                Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(messageId));
+                throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(messageId));
             _logger.LogInformation($"Message ID: {messageId}");
 
             var message = _configuration.GetValue<string>("message");
             if(string.IsNullOrWhiteSpace(message))
-                Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(message));
+                throw Extensions.Extensions.GetInvalidParameterNullOrWhiteSpaceException(nameof(message));
             _logger.LogInformation($"Message: {message}");
 
 

@@ -6,30 +6,27 @@ using StreamChat.Cli.Commands.Extensions;
 
 namespace StreamChat.Cli.Commands
 {
-    [CommandDescriptor("channel", "list")]
-    public class ChannelList : ICommand
+    [CommandDescriptor("channel", "list", new[]
     {
-        private readonly Client _client;
-        private readonly IConfiguration _configuration;
-        private readonly ILogger<ChannelList> _logger;
+        "[--limit={Limit(Default=100,Max=100)}]",
+        "[--offset={Offset(Default=0)}]"
+    })]
+    public class ChannelList : CommandBase
+    {
 
         public ChannelList(
             Client client,
             IConfiguration configuration,
-            ILogger<ChannelList> logger)
+            ILogger<ChannelList> logger) : base(client, configuration, logger)
         {
-            _client = client;
-            _configuration = configuration;
-            _logger = logger;
         }
-        public async Task<string> Execute()
+        public override async Task<string> Execute()
         {
-            const int ChannelsLimit = 100;
-
             StringBuilder result = new StringBuilder();
 
             QueryChannelsOptions opts = new QueryChannelsOptions();
-            opts.WithLimit(ChannelsLimit);
+            opts.WithLimit(Limit);
+            opts.WithOffset(Offset);
 
             var channels = await _client.QueryChannels(opts);
             int idx = 0;
